@@ -1,7 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-
-import { createProduct} from './controller/Product.controller.js';
 import mongoose from 'mongoose';
 
 import userRouter from './routes/Users.route.js';
@@ -9,6 +7,9 @@ import authRouter from './routes/Auth.route.js'
 import productsRouter from './routes/Product.route.js';
 import categoriesRouter from './routes/Category.route.js'
 import brandsRouter from './routes/Brands.route.js'
+import cartsRouter from './routes/Cart.route.js';
+import ordersRouter from './routes/order.route.js';
+
 const app = express();
 const port = 8080;
 
@@ -32,6 +33,8 @@ app.use('/categories',categoriesRouter);
 app.use('/brands',brandsRouter);
 app.use('/users', userRouter);
 app.use('/auth',authRouter);
+app.use('/cart',cartsRouter);
+app.use('/orders',ordersRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
