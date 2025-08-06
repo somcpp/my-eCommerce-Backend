@@ -42,7 +42,7 @@ async function main() {
 main();
 
 // Routes
-app.use("/products", isAuth, productsRouter);
+app.use("/products", productsRouter);
 app.use("/categories", categoriesRouter);
 app.use("/brands", brandsRouter);
 app.use("/users", userRouter);
@@ -53,13 +53,13 @@ app.use("/orders", ordersRouter);
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-function isAuth(req, res, done) {
-  if (req.user) {
-    done();
-  } else {
-    res.send(401);
-  }
-}
+// function isAuth(req, res, done) {
+//   if (req.user) {
+//     done();
+//   } else {
+//     res.send(401);
+//   }
+// }
 // Start the server
 app.listen(port, () => {
   console.log(`🚀 Server listening on port ${port}`);
